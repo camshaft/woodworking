@@ -84,10 +84,10 @@ module leg_wedge() {
 }
 
 module table_wedge() {
-  dims = [4, (leg_thickness * 2 + foot_thickness) * 2, truss_thickness];
-  translate([table_width / 2 - leg_offset - leg_thickness / 2 - foot_thickness / 2, 0, leg_height - 1])
+  dims = [4, (leg_thickness * 2 + foot_thickness) * 2.5, truss_thickness];
+  translate([table_width / 2 - leg_offset, 0, leg_height - 1])
   rotate([90, 0, -90])
-  sloped(dims, dims[0] / 4, 1);
+  sloped(dims, dims[0] / 5, 1);
 }
 
 module foot() {
