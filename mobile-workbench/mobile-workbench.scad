@@ -12,8 +12,11 @@ module tbf(length, center = true) {
 module tbs(length, center = true) {
   cube([length, 5.5, 1.5], center);
 };
+module ply(width, length, center = true) {
+  cube([width, length, 3 / 4], center);
+};
 
-module frame() { 
+module frame() {
 // front
   translate([0, -(table_depth / 2) + .75, 0])
   rotate([90, 0, 0])
@@ -26,15 +29,15 @@ module frame() {
   translate([-(table_width / 2) + .75, 0, 0])
   rotate([90, 0, 90])
   tbf(table_depth - 3);
-  
+
   translate([-(table_width / 4) + .75, 0, 0])
   rotate([90, 0, 90])
   tbf(table_depth - 3);
-  
+
   translate([0, 0, 0])
   rotate([90, 0, 90])
   tbf(table_depth - 3);
-  
+
   translate([(table_width / 4) - .75, 0, 0])
   rotate([90, 0, 90])
   tbf(table_depth - 3);
@@ -58,19 +61,19 @@ module leg() {
   frame();
 
 // ply
-   translate([0, 0, table_height - 3/8])
-   cube([table_width, table_depth, 3/4], true);
+  translate([0, 0, table_height - 3/8])
+  ply(table_width, table_depth);
 
 // BOTTOM
   translate([0, 0, shelf_height - 1.75 - 3/4])
   frame();
- 
+
 // ply
-   translate([0, 0, shelf_height - 3/8])
-   cube([table_width, table_depth, 3/4], true);
+  translate([0, 0, shelf_height - 3/8])
+  ply(table_width, table_depth);
 
 leg_offset = 4.6;
-  
+
   // legs
   translate([-table_width / 2 + leg_offset, -table_depth / 2 + leg_offset/2, leg_height / 2])
   rotate([0, 0, 90])
