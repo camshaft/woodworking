@@ -5,14 +5,14 @@ table_depth = 4 * feet;
 table_height = 30;
 table_thickness = 2;
 breadboard_width = 6;
-leg_thickness = 1;
+leg_thickness = 2;
 leg_width = 5;
 leg_separation = 8;
 truss_height = 5;
-truss_thickness = leg_thickness;
+truss_thickness = 1;
 truss_extension = 3;
 foot_height = 4;
-foot_thickness = 2;
+foot_thickness = 4;
 
 leg_height = table_height - table_thickness;
 leg_offset = leg_height / 2;
@@ -84,8 +84,8 @@ module leg_wedge() {
 }
 
 module table_wedge() {
-  dims = [4, (leg_thickness * 2 + foot_thickness) * 2.5, truss_thickness];
-  translate([table_width / 2 - leg_offset, 0, leg_height - 1])
+  dims = [4, (leg_thickness * 2 + foot_thickness) * 1.5, truss_thickness / 2];
+  translate([table_width / 2 - leg_offset - 1, 0, leg_height - 1])
   rotate([90, 0, -90])
   sloped(dims, dims[0] / 5, 1);
 }
